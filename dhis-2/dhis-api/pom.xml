@@ -87,6 +87,12 @@
       <groupId>org.geotools</groupId>
       <artifactId>gt-opengis</artifactId>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.geolatte/geolatte-geom -->
+    <dependency>
+      <groupId>org.geolatte</groupId>
+      <artifactId>geolatte-geom</artifactId>
+      <version>1.2.0</version>
+    </dependency>
 
     <!-- Test -->
 
