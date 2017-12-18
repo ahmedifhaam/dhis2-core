@@ -33,6 +33,9 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import org.geolatte.geom.MultiPolygon;
+import org.geolatte.geom.Point;
+import org.geolatte.geom.Polygon;
 import org.hisp.dhis.common.BaseIdentifiableObject;
 import org.hisp.dhis.common.DxfNamespaces;
 import org.hisp.dhis.organisationunit.OrganisationUnit;
@@ -69,6 +72,12 @@ public class TrackedEntityInstance
     private Boolean inactive = false;
 
     private Boolean deleted = false;
+
+    private Point location;
+
+    private Polygon polygon;
+
+    private MultiPolygon multiPolygon;
 
     // -------------------------------------------------------------------------
     // Constructors
@@ -222,5 +231,41 @@ public class TrackedEntityInstance
     public void setDeleted( Boolean deleted )
     {
         this.deleted = deleted;
+    }
+
+    @JsonProperty
+    @JacksonXmlProperty( localName = "location", namespace = DxfNamespaces.DXF_2_0 )
+    public Point getLocation()
+    {
+        return location;
+    }
+
+    public void setLocation( Point point )
+    {
+        this.location = point;
+    }
+
+    @JsonProperty
+    @JacksonXmlProperty( localName = "polygon", namespace = DxfNamespaces.DXF_2_0 )
+    public Polygon getPolygon()
+    {
+        return polygon;
+    }
+
+    public void setPolygon( Polygon polygon )
+    {
+        this.polygon = polygon;
+    }
+
+    @JsonProperty
+    @JacksonXmlProperty( localName = "mpolygon", namespace = DxfNamespaces.DXF_2_0 )
+    public MultiPolygon getMultiPolygon()
+    {
+        return multiPolygon;
+    }
+
+    public void setMultiPolygon( MultiPolygon multiPolygon )
+    {
+        this.multiPolygon = multiPolygon;
     }
 }
